@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- ...existing code... -->
+<body>
+    <h1>Daftar Pengaduan</h1>
+    <table border="1">
+        <tr>
+            <th>Pelapor</th>
+            <th>Judul</th>
+            <th>Isi</th>
+            <th>Status</th>
+            <th>Tanggal Pengaduan</th>
+        </tr>
+        {% for pengaduan in object_list %}
+        <tr>
+            <td>{{ pengaduan.pelapor.nama_lengkap }}</td>
+            <td>{{ pengaduan.judul }}</td>
+            <td>{{ pengaduan.isi }}</td>
+            <td>{{ pengaduan.status }}</td>
+            <td>{{ pengaduan.tanggal_pengaduan }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">Tidak ada pengaduan.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+<!-- ...existing code... -->
+</html>

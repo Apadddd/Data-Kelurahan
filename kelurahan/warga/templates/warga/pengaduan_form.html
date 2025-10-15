@@ -3,14 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tambah Pengaduan Baru</title>
+    <style>
+        body {
+            background: #f4f8fb;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 32px 24px;
+        }
+        h1 {
+            color: #1976d2;
+            margin-bottom: 24px;
+            font-size: 1.7rem;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        button[type="submit"] {
+            background: #1976d2;
+            color: #fff;
+            padding: 10px 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+        button[type="submit"]:hover {
+            background: #1565c0;
+        }
+        a {
+            display: inline-block;
+            margin-top: 18px;
+            margin-right: 10px;
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 500;
+            transition: text-decoration 0.2s;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Style form fields */
+        input, select, textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #bcdffb;
+            border-radius: 4px;
+            font-size: 1rem;
+            background: #f7fbff;
+        }
+        label {
+            font-weight: 500;
+            color: #1976d2;
+            margin-bottom: 4px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Tambah Pengaduan Baru</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Simpan</button>
-    </form>
+    <div class="container">
+        <h1>Tambah Pengaduan Baru</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Simpan</button>
+        </form>
+        <a href="{% url 'pengaduan-list' %}">Kembali ke Daftar Pengaduan</a>
+        <a href="{% url 'warga-list' %}">Kembali ke Detail Warga</a>
+    </div>
 </body>
 </html>

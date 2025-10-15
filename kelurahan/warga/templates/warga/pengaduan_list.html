@@ -104,6 +104,7 @@
                     <td>{{ pengaduan.pelapor.nama_lengkap }}</td>
                     <td>{{ pengaduan.judul }}</td>
                     <td>{{ pengaduan.isi }}</td>
+                    
                     <td>
                         {% if pengaduan.status == "Selesai" %}
                             <span class="badge-status badge-selesai">Selesai</span>
@@ -114,6 +115,10 @@
                         {% endif %}
                     </td>
                     <td>{{ pengaduan.tanggal_pengaduan }}</td>
+                     <td>
+                         <a href="{% url 'pengaduan-edit' pengaduan.pk %}">Edit</a> |
+                         <a href="{% url 'pengaduan-hapus' pengaduan.pk %}">Hapus</a>
+                     </td>
                 </tr>
                 {% empty %}
                 <tr>
@@ -124,6 +129,12 @@
         </table>
     </div>
 </div>
+<div class="text-center mt-4">
+    <a href="{% url 'warga-list' %}" class="btn btn-primary">
+        <i class="fa-solid fa-users"></i> Lihat Daftar Warga
+    </a>
+</div>
+
 
 </body>
 </html>
